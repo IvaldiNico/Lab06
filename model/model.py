@@ -40,9 +40,7 @@ class DepositoStrumenti:
 
             strumenti = []
             cursore = cnx.cursor(dictionary = True)
-            query = f"""SELECT *
-                        FROM deposito_strumenti
-            """
+
             query = f"""SELECT *
                         FROM strumento"""
             cursore.execute(query)
@@ -77,7 +75,6 @@ class DepositoStrumenti:
 
             strumenti = []
             cursore = cnx.cursor(dictionary = True)
-            query = f"""SELECT *"""
             query = f"""SELECT *
                         FROM strumento
                         WHERE tipo = %s"""

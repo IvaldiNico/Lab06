@@ -52,11 +52,11 @@ class Controller:
         strumenti = self._model.cerca_strumenti_per_tipo(tipo_cercato)
         self._view.lista_strumenti_ricerca.controls.clear()
 
-        if strumenti is not None:
+        if strumenti is not None and len(strumenti) > 0:
             for s in strumenti:
                 self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(s)))
 
         else:
-            self._view.show_alert(f"Errore: {tipo_cercato} non esiste")
+            self._view.show_alert(f"Errore: il tipo {tipo_cercato} non esiste")
 
         self._view.update()
