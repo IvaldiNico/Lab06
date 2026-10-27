@@ -41,11 +41,11 @@ class Controller:
     def  cerca_strumenti(self):
         tipo_cercato = self._view.input_tipo_strumento.value
         strumenti = self._model.cerca_strumenti_per_tipo(tipo_cercato)
-        self._view.lista_strumenti.controls.clear()
+        self._view.lista_strumenti_ricerca.controls.clear()
 
         if strumenti is not None:
             for s in strumenti:
-                self._view.lista_strumenti.controls.append(ft.Text(str(s)))
+                self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(s)))
 
         self._view.update()
 
