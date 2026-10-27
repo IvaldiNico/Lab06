@@ -89,7 +89,7 @@ class View:
             ft.Divider(),
 
             # Sezione 4
-            ft.Text("Cerca strumento per tipo", size = 20),
+            ft.Text("Cerca Strumento per Tipo", size = 20),
             ft.Row(spacing = 20,
                    controls = [ self.input_tipo_strumento,btn_cerca]),
             self.lista_strumenti_ricerca)

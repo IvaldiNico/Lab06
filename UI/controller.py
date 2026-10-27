@@ -32,13 +32,19 @@ class Controller:
         strumenti = self._model.get_strumenti()
         self._view.lista_strumenti.controls.clear()  ##clear fatto per evitare duplicazione strumenti
 
-        if strumenti is not None:
+        if strumenti is None:
+            self._view.show_alert("Errore: impossibile collegarsi al database")
+
+        elif len(strumenti) == 0:
+            self._view.show_alert("Errore: database strumenti vuoto")
+
+        else:
             for s in strumenti:
                 self._view.lista_strumenti.controls.append(ft.Text(str(s)))
 
         self._view.update()
 
-    def  cerca_strumenti(self):
+    def cerca_strumenti(self):
         tipo_cercato = self._view.input_tipo_strumento.value
 
         if not tipo_cercato:
@@ -52,11 +58,14 @@ class Controller:
         strumenti = self._model.cerca_strumenti_per_tipo(tipo_cercato)
         self._view.lista_strumenti_ricerca.controls.clear()
 
-        if strumenti is not None and len(strumenti) > 0:
-            for s in strumenti:
-                self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(s)))
+        if strumenti is None:
+            self._view.show_alert("Errore: impossibile collegarsi al database")
+
+        elif len(strumenti) == 0:
+            self._view.show_alert(f"Errore: il tipo {tipo_cercato} non esiste")
 
         else:
-            self._view.show_alert(f"Errore: il tipo {tipo_cercato} non esiste")
+            for s in strumenti:
+                self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(s)))
 
         self._view.update()
