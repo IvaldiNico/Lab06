@@ -45,7 +45,7 @@ class Controller:
         self._view.update()
 
     def cerca_strumenti(self):
-        tipo_cercato = self._view.input_tipo_strumento.value
+        tipo_cercato = self._view.input_tipo_strumento.value.strip()
 
         if not tipo_cercato:
             self._view.show_alert("Errore: inserisci un tipo da cercare")
