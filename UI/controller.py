@@ -28,4 +28,27 @@ class Controller:
         self._view.update()
 
     # Altre Funzioni Event Handler
+    def mostra_strumenti(self):
+        strumenti = self._model.get_strumenti()
+        self._view.lista_strumenti.controls.clear()  ##clear fatto per evitare duplicazione strumenti
+
+        if strumenti is not None:
+            for s in strumenti:
+                self._view.lista_strumenti.controls.append(ft.Text(str(s)))
+
+        self._view.update()
+
+    def  cerca_strumenti(self):
+        tipo_cercato = self._view.input_tipo_strumento.value
+        strumenti = self._model.cerca_strumenti_per_tipo(tipo_cercato)
+        self._view.lista_strumenti.controls.clear()
+
+        if strumenti is not None:
+            for s in strumenti:
+                self._view.lista_strumenti.controls.append(ft.Text(str(s)))
+
+        self._view.update()
+
+
+
     # TODO
