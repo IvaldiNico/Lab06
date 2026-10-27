@@ -40,6 +40,15 @@ class Controller:
 
     def  cerca_strumenti(self):
         tipo_cercato = self._view.input_tipo_strumento.value
+
+        if not tipo_cercato:
+            self._view.show_alert("Errore: inserisci un tipo da cercare")
+            return
+
+        if tipo_cercato.isdigit():
+            self._view.show_alert("Errore: tipo non valido")
+            return
+
         strumenti = self._model.cerca_strumenti_per_tipo(tipo_cercato)
         self._view.lista_strumenti_ricerca.controls.clear()
 
@@ -47,8 +56,7 @@ class Controller:
             for s in strumenti:
                 self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(s)))
 
+        else:
+            self._view.show_alert(f"Errore: {tipo_cercato} non esiste")
+
         self._view.update()
-
-
-
-    # TODO

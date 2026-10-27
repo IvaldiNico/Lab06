@@ -65,7 +65,6 @@ class DepositoStrumenti:
         finally:
             if cnx and cnx.is_connected():
                 cnx.close()
-        # TODO
 
     def cerca_strumenti_per_tipo(self, tipo) -> list[Strumento] | None:
         """
@@ -80,7 +79,7 @@ class DepositoStrumenti:
             cursore = cnx.cursor(dictionary = True)
             query = f"""SELECT *"""
             query = f"""SELECT *
-                        FROM deposito_strumenti
+                        FROM strumento
                         WHERE tipo = %s"""
             cursore.execute(query, (tipo,))
 
@@ -102,4 +101,3 @@ class DepositoStrumenti:
         finally:
             if cnx and cnx.is_connected():
                 cnx.close()
-        # TODO
