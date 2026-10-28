@@ -28,7 +28,7 @@ class Controller:
         self._view.update()
 
     # Altre Funzioni Event Handler
-    def mostra_strumenti(self):
+    def mostra_strumenti(self, e):
         strumenti = self._model.get_strumenti()
         self._view.lista_strumenti.controls.clear()  ##clear fatto per evitare duplicazione strumenti
 
@@ -44,7 +44,7 @@ class Controller:
 
         self._view.update()
 
-    def cerca_strumenti(self):
+    def cerca_strumenti(self, e):
         tipo_cercato = self._view.input_tipo_strumento.value.strip()
 
         if not tipo_cercato:
