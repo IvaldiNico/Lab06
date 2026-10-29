@@ -80,7 +80,7 @@ class DepositoStrumenti:
                         WHERE tipo = %s"""
             cursore.execute(query, (tipo,))
 
-            for riga in cursore.fetchall():
+            for riga in cursore.fetchall():   #fetchall serve a recuperare tutte le righe e convertire in lista
                 strumento = Strumento(riga['codice'],
                                       riga['tipo'],
                                       riga['marca'],

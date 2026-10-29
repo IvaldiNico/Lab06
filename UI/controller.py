@@ -30,7 +30,7 @@ class Controller:
     # Altre Funzioni Event Handler
     def mostra_strumenti(self, e):
         strumenti = self._model.get_strumenti()
-        self._view.lista_strumenti.controls.clear()  ##clear fatto per evitare duplicazione strumenti
+        self._view.lista_strumenti.controls.clear()  #clear fatto per evitare duplicazione strumenti
 
         if strumenti is None:
             self._view.show_alert("Errore: impossibile collegarsi al database")
