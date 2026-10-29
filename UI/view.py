@@ -63,8 +63,8 @@ class View:
         pulsante_conferma_responsabile = ft.Button("Conferma", on_click=self.controller.conferma_responsabile)
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
-        btn_mostra = ft.Button("Mostra", on_click=self.controller.mostra_strumenti)
-        btn_cerca = ft.Button("Cerca", on_click=self.controller.cerca_strumenti)
+        self.btn_mostra = ft.Button("Mostra", on_click=self.controller.mostra_strumenti)
+        self.btn_cerca = ft.Button("Cerca", on_click=self.controller.cerca_strumenti)
 
         # --- LAYOUT ---
         self.page.add(
@@ -84,14 +84,14 @@ class View:
 
             # Sezione 3
             ft.Row(spacing = 20,
-                   controls = [ft.Text("Strumenti", size = 20), btn_mostra]),
+                   controls = [ft.Text("Strumenti", size = 20), self.btn_mostra]),
             self.lista_strumenti,
             ft.Divider(),
 
             # Sezione 4
             ft.Text("Cerca Strumento per Tipo", size = 20),
             ft.Row(spacing = 20,
-                   controls = [ self.input_tipo_strumento,btn_cerca]),
+                   controls = [ self.input_tipo_strumento, self.btn_cerca]),
             self.lista_strumenti_ricerca
         )
 
